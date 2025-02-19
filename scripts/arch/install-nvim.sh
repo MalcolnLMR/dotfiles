@@ -12,3 +12,5 @@ wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/do
 
 echo "Installing nvim"
 git clone https://github.com/malcolnlmr/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+
+nvim
