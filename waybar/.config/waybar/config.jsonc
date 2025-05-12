@@ -1,0 +1,166 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 50,
+    "modules-left": [
+        "clock",
+        "custom/weather",
+        //"custom/moon",
+        //"custom/wall",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        // "hyprland/window"
+        ""
+    ],
+    "modules-right": [
+        "network",
+        //"bluetooth",
+        //"custom/temperature",
+        //"custom/memory",
+        "backlight",
+        "idle_inhibitor",
+        "wireplumber",
+        "power-profiles-daemon",
+        "battery"
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format-icons": {
+            "1": "Code",
+            "2": "Web"
+        },
+        "persistent_workspaces": {
+            "*": 1
+        }
+    },
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "custom/weather": {
+        "tooltip": true,
+        "format": "{}",
+        "interval": 600,
+        "exec": "~/.config/waybar/scripts/waybar-wttr.py",
+        "return-type": "json"
+    },
+    "custom/moon": {
+        "format": "{}",
+        "interval": 3600,
+        "exec": "moon"
+    },
+
+    "custom/wall":{
+        "format": "{}",
+        "interval":60,
+        "exec":"r-wall & ",
+        "format-alt":"r-wall &"
+    },
+
+    "custom/temperature": {
+        "format": " {}",
+        "interval": 30,
+        "exec": "temp"
+    },
+    "custom/memory": {
+        "tooltip": true,
+        "format": "🧠 {}",
+        "interval": 30,
+        "exec": "memory"
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+    "clock": {
+        //"format": "{: %I:%M %p  %a, %b %e}",
+        "format": " {0:%H:%M}  {0:%d/%m}",
+        "format-alt": "{%Y-%m-%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "󰃞 ",
+            "󰃟 ",
+            "󰃠 "
+        ],
+        "on-scroll-up": "brightnessctl -q set 1%+",
+        "on-scroll-down": "brightnessctl -q set 1%-"
+    },
+    "battery": {
+        "states": {
+            "good": 80,
+            "warning": 50,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "on-click": "helvum",
+        "format-icons": ["", "", ""]
+    },
+
+   "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": " Connected",
+        "tooltip-format": "{essid} - {ifname}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "⚠ Offline",
+        "format-alt": "{ipaddr}/{cidr}"
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": "", // an empty format will hide the module
+        "format-connected": " {num_connections}",
+        "tooltip-format": "{device_alias}",
+        "tooltip-format-connected": " {device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "OHMAGA",
+            "deactivated": "zzz"
+        }
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    }
+}
