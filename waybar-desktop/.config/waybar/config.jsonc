@@ -1,0 +1,115 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 50,
+    "modules-left": [
+        "clock",
+        "custom/weather",
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        ""
+    ],
+
+    "modules-right": [
+        "tray",
+        "custom/light",
+        "network",
+        "idle_inhibitor",
+        "wireplumber#sink",
+        "wireplumber#source"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format-icons": {
+            "1": "Code",
+            "2": "Web"
+        },
+        "persistent_workspaces": {
+            "*": 1
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{}"
+    },
+
+    "custom/weather": {
+        "tooltip": true,
+        "format": "{}",
+        "interval": 600,
+        "exec": "~/.config/waybar/scripts/waybar-wttr.py",
+        "return-type": "json"
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    "clock": {
+        //"format": "{: %I:%M %p  %a, %b %e}",
+        "format": "  {0:%H:%M}   {0:%d/%m}",
+        "format-alt": "{%Y-%m-%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "󰃞 ",
+            "󰃟 ",
+            "󰃠 "
+        ],
+        "on-scroll-up": "brightnessctl -q set 1%+",
+        "on-scroll-down": "brightnessctl -q set 1%-"
+    },
+
+    "wireplumber#sink": {
+        "format": "{volume}% {node_name}",
+        "format-muted": "󰟎  {node_name}",
+        "on-click-right": "wpctl set-default 56",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-middle": "wpctl set-default 195"
+    },
+
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "  {volume}%",
+        "format-muted": "",
+        "on-click-right": "helvum",
+        "on-click-left": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "scroll-step": 5
+    },
+
+   "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": "󰛳",
+        "tooltip-format": "{essid} - {ifname}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "󰲛",
+        "format-alt": "{ipaddr}/{cidr}"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "OHMAGA",
+            "deactivated": "zzz"
+        }
+    },
+
+    "custom/light": {
+        "format": "",
+        "on-click": "~/git/HeadsetControl/build/headsetcontrol -l 0"
+    }
+}

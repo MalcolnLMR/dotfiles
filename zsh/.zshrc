@@ -73,6 +73,7 @@ ZSH_THEME="fino"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+alias hsc="~/git/HeadsetControl/build/headsetcontrol"
 
 # User configuration
 
