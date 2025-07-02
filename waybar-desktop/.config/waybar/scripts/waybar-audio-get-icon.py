@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import json
-import subprocess, os
+import subprocess
 
 search_headset = "pw-cli i alsa_output.usb-Logitech_G733_Gaming_Headset-00.iec958-stereo | grep -oP 'id: \\K\\w+'"
 search_speaker= "pw-cli i alsa_output.pci-0000_06_00.6.analog-stereo | grep -oP 'id: \\K\\w+'"
@@ -19,13 +19,9 @@ actual_id = result.decode()
 
 data = {}
 
-if (actual_id == headset_id):
-    change_to_speaker = "wpctl set-default {}".format(speaker_id)
-    os.system(change_to_speaker)
+if (actual_id == speaker_id):
     data['text'] = "󰓃"
 else:
-    change_to_headset = "wpctl set-default {}".format(headset_id)
-    os.system(change_to_headset)
     data['text'] = ""    
 
 print(json.dumps(data))
