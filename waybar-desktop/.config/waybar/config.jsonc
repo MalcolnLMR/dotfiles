@@ -7,20 +7,18 @@
     "gtk-layer-shell": true,
     "height": 50,
     "modules-left": [
-        "clock",
-        "custom/weather",
-        "hyprland/workspaces"
+        "clock",        
+        "custom/weather"
     ],
-
+/*
     "modules-center": [
         ""
     ],
-
+*/
     "modules-right": [
         "tray",
         "custom/light",
         "network",
-        "idle_inhibitor",
         "custom/audio_output",
         "wireplumber#sink",
         "wireplumber#source"
@@ -58,21 +56,10 @@
 
     "clock": {
         //"format": "{: %I:%M %p  %a, %b %e}",
-        "format": "  {0:%H:%M}   {0:%d/%m}",
-        "format-alt": "{%Y-%m-%d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
-    },
-
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "{percent}% {icon}",
-        "format-icons": [
-            "󰃞 ",
-            "󰃟 ",
-            "󰃠 "
-        ],
-        "on-scroll-up": "brightnessctl -q set 1%+",
-        "on-scroll-down": "brightnessctl -q set 1%-"
+        "interval": 60,
+        "format-alt": "  {0:%H:%M}   {0:%d/%m}",
+        "format": "{0:%H:%M}",
+        "tooltip-format": "<big>{0:%d/%m - %A}</big>\n<tt>{calendar}</tt>"
     },
 
     "custom/audio_output": {
