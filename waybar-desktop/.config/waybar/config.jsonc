@@ -19,6 +19,7 @@
         "tray",
         "custom/light",
         "network",
+        "custom/media",
         "custom/audio_output",
         "wireplumber#sink",
         "wireplumber#source"
@@ -70,6 +71,19 @@
         "exec": "~/.config/waybar/scripts/waybar-audio-get-icon.py",
         "exec-on-event": true,
         "return-type": "json"
+    },
+
+    "custom/media": {
+        "format": "{icon} {text}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "~/.config/waybar/mediaplayer.py 2> /dev/null" 
     },
 
     "wireplumber#sink": {
