@@ -114,10 +114,8 @@ class PlayerManager:
         logger.debug(f"Metadata changed for player {player.props.player_name}")
         player_name = player.props.player_name
         artist = player.get_artist()
-        artist = artist.replace("&", "&amp;")
         title = player.get_title()
-        title = title.replace("&", "&amp;")
-        album = player.get_album().replace("&", "&amp;")
+        album = player.get_album()
         album = album if album is not None else ""
 
         track_info = ""
@@ -129,7 +127,7 @@ class PlayerManager:
             track_info = title
 
         if album is not "":
-            tooltip += f"\nAlbum{album}"
+            tooltip += f"\n󰀥  {album}"
 
         if track_info:
             if player.props.status == "Playing":
