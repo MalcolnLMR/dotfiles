@@ -122,7 +122,7 @@ class PlayerManager:
         tooltip = ""
         if artist is not None and title is not None:
             track_info = f"{title}"
-            tooltip = f"  {artist}\n  {title}"
+            tooltip = f"  {artist}\n󰎆  {title}"
         else:
             track_info = title
 

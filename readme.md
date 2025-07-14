@@ -19,3 +19,10 @@ Then, clone this repo into your home folder, to be smt like `~/dotfiles`
 ### Usage
 
 Just use `stow _package_` in the needed packages, the default one is from my laptop, and the `-desktop` is from my, well, desktop.
+
+## Plans
+
+- [ ] Finish installation guide
+- [ ] Combine desktop configs inside a `.config-desktop` for better maintenance
+- [ ] Make a eww widget to better control audio in/out (change output, volume, etc)
+- [ ] Add images on readme to showcase my ricing :D
