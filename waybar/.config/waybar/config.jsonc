@@ -37,7 +37,8 @@
             "2": "Web"
         },
         "persistent_workspaces": {
-            "*": 1
+            "*": 1,
+            "*": 6
         }
     },
     "hyprland/window": {

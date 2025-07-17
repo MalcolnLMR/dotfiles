@@ -7,23 +7,22 @@
     "gtk-layer-shell": true,
     "height": 50,
     "modules-left": [
-        "clock",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "tray"
     ],
-/*
+
     "modules-center": [
-        ""
+        "clock",
+        "custom/weather"
     ],
-*/
+
     "modules-right": [
-        "tray",
-        "custom/light",
         "network",
         "custom/media",
         "custom/audio_output",
         "wireplumber#sink",
         "wireplumber#source",
-        "custom/weather"
+        "custom/light",
     ],
 
     "hyprland/workspaces": {
@@ -32,15 +31,16 @@
         "on-scroll-down": "hyprctl dispatch workspace e-1",
         "format-icons": {
             "1":"",
-            "2":"",
-            "3":"",
-            "4":"󰘧",
+            "2":"󰈹",
+            "3":"󰞷",
+            "4":"",
             "5":"",
             "6":"",
             "7":""
         },
-        "persistent_workspaces": {
-            "*": 1
+        "persistent-workspaces": {
+            "DP-2": [1, 2, 3, 4, 5],
+            "HDMI-A-1": [6, 7]
         }
     },
 
