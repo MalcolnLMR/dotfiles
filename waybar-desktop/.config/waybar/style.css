@@ -11,7 +11,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrains Mono";
+    font-family: "JetBrainsMono Nerd Font Propo";
     font-weight: bold;
     font-size: 16px;
     min-height: 0;
@@ -56,7 +56,7 @@ tooltip label {
 
 #tray {
     border-radius: 10px;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #clock {
@@ -104,7 +104,7 @@ tooltip label {
 }
 
 #workspaces button.urgent {
-    background: #a6e3a1;
+    background: @text-urgent;
 }
 
 #workspaces button:hover {
