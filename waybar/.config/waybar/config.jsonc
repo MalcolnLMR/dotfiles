@@ -7,24 +7,19 @@
     "gtk-layer-shell": true,
     "height": 50,
     "modules-left": [
-        "clock",
-        "custom/weather",
-        //"custom/moon",
-        //"custom/wall",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "tray"
     ],
     "modules-center": [
-        // "hyprland/window"
-        ""
+        "clock",
+        "custom/weather"
     ],
     "modules-right": [
         "network",
-        //"bluetooth",
-        //"custom/temperature",
-        //"custom/memory",
         "backlight",
-        "idle_inhibitor",
-        "wireplumber",
+        "custom/media",
+        "wireplumber#sink",
+        "wireplumber#source",
         "power-profiles-daemon",
         "battery"
     ],
@@ -33,17 +28,21 @@
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1",
         "format-icons": {
-            "1": "Code",
-            "2": "Web"
+            "1":"",
+            "2":"󰈹",
+            "3":"󰞷",
+            "4":"",
+            "5":"󰍡",
+            "6":""
         },
         "persistent_workspaces": {
-            "*": 1,
-            "*": 6
+            "*": [1, 2, 3, 4, 5, 6],
         }
     },
     "hyprland/window": {
         "format": "{}"
     },
+
     "custom/weather": {
         "tooltip": true,
         "format": "{}",
@@ -51,40 +50,20 @@
         "exec": "~/.config/waybar/scripts/waybar-wttr.py",
         "return-type": "json"
     },
-    "custom/moon": {
-        "format": "{}",
-        "interval": 3600,
-        "exec": "moon"
-    },
 
-    "custom/wall":{
-        "format": "{}",
-        "interval":60,
-        "exec":"r-wall & ",
-        "format-alt":"r-wall &"
-    },
-
-    "custom/temperature": {
-        "format": " {}",
-        "interval": 30,
-        "exec": "temp"
-    },
-    "custom/memory": {
-        "tooltip": true,
-        "format": "🧠 {}",
-        "interval": 30,
-        "exec": "memory"
-    },
     "tray": {
         "icon-size": 18,
         "spacing": 10
     },
+
     "clock": {
         //"format": "{: %I:%M %p  %a, %b %e}",
+        "interval": 60,
         "format": " {0:%H:%M}  {0:%d/%m}",
         "format-alt": "{%Y-%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
     },
+
     "backlight": {
         "device": "intel_backlight",
         "format": "{percent}% {icon}",
@@ -96,6 +75,7 @@
         "on-scroll-up": "brightnessctl -q set 1%+",
         "on-scroll-down": "brightnessctl -q set 1%-"
     },
+
     "battery": {
         "states": {
             "good": 80,
@@ -121,11 +101,32 @@
         ]
     },
 
-    "wireplumber": {
-        "format": "{volume}% {icon}",
-        "format-muted": "",
+    "custom/media": {
+        "format": "{icon} {text}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "exec": "~/.config/waybar/scripts/mediaplayer.py 2> /dev/null" 
+    },
+
+    "wireplumber#sink": {
+        "format": " {volume}%",
+        "format-muted": "",
+        "tooltip-format": "{node_name}",
+        "on-click": "exec pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": " {volume}%",
+        "tooltip-format": "{node_name}",
+        "format-muted": "",
         "on-click": "helvum",
-        "format-icons": ["", "", ""]
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "scroll-step": 5
     },
 
    "network": {
@@ -136,6 +137,7 @@
         "format-disconnected": "⚠ Offline",
         "format-alt": "{ipaddr}/{cidr}"
     },
+
     "bluetooth": {
         "format": " {status}",
         "format-disabled": "", // an empty format will hide the module
@@ -143,14 +145,6 @@
         "tooltip-format": "{device_alias}",
         "tooltip-format-connected": " {device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}"
-    },
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "OHMAGA",
-            "deactivated": "zzz"
-        }
     },
 
     "power-profiles-daemon": {
