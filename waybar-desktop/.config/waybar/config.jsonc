@@ -22,6 +22,7 @@
         "custom/audio_output",
         "wireplumber#sink",
         "wireplumber#source",
+        "custom/restart_waybar",
         "custom/light",
     ],
 
@@ -36,11 +37,12 @@
             "4":"",
             "5":"",
             "6":"󰍡",
-            "7":""
+            "7":"",
+            "8":"󰈹"
         },
         "persistent-workspaces": {
             "DP-2": [1, 2, 3, 4, 5],
-            "HDMI-A-1": [6, 7]
+            "HDMI-A-1": [6, 7, 8]
         }
     },
 
@@ -107,7 +109,7 @@
         "scroll-step": 5
     },
 
-   "network": {
+    "network": {
         "format-wifi": "  {signalStrength}%",
         "format-ethernet": "󰛳",
         "tooltip-format": "{essid} - {ipaddr}/{cidr}",
@@ -126,5 +128,10 @@
     "custom/light": {
         "format": "",
         "on-click": "~/git/HeadsetControl/build/headsetcontrol -l 0"
+    },
+
+    "custom/restart_waybar": {
+        "format": "",
+        "on-click": "/home/malcolnlmr/dotfiles/waybar-desktop/.config/waybar/scripts/kill_waybar.sh"
     }
 }

@@ -35,7 +35,7 @@ tooltip label {
     color: @text;
 }
 
-
+#custom-restart_waybar,
 #custom-weather,
 #custom-light,
 #custom-audio_output,

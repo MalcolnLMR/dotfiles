@@ -15,5 +15,5 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 alias hsc="~/git/HeadsetControl/build/headsetcontrol"
 alias s="kitten ssh"
-
+alias pyvenv="source ./venv/bin/activate"
 
