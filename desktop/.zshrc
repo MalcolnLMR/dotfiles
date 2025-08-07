@@ -16,4 +16,6 @@ source $ZSH/oh-my-zsh.sh
 alias hsc="~/git/HeadsetControl/build/headsetcontrol"
 alias s="kitten ssh"
 alias pyvenv="source ./venv/bin/activate"
-
+alias pyinit="python -m venv venv"
+alias mount-android="aft-mtp-mount ~/mnt"
+alias open="hyprctl dispatch exec nautilus ."
