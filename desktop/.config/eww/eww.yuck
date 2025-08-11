@@ -1,13 +1,13 @@
 (
   defwindow exemple
-  :monitor "HDMI-A-1" ; Pass this to DP-2 when finish developing
+  :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
   :geometry (
               geometry 
               :x "0%"
               :y "20px"
               :width "25%"
               :height "100px"
-              :anchor "top left"
+              :anchor "top right"
             )
   :stacking "fg"
   :namespace "eww"
@@ -19,18 +19,17 @@
 
 ; Pulseaudio output widget
 (
-  defwidget sound-output []
-  ( ; START OF MAIN
-    box 
-    :orientation "vertical"
-    :geometry (
+    defwidget sound-output [] ( ; START OF MAIN
+      box 
+      :orientation "vertical"
+      :geometry (
                 geometry
                 :x "0%"
                 :y "20px"
                 :width "90%"
                 :height "20px"
-              )
-    ( ; START OF OUTPUT
+                )
+      ( ; START OF OUTPUT
       box
       :orientation "horizontal"
       :geometry (
@@ -45,7 +44,15 @@
         audio-mute
       )
     ) ; END OF OUTPUT
-    
+ 
+    ( ; START OF OUTPUT
+      image
+        :path 'file:///tmp/.org.chromium.Chromium.P86DBH'
+        :image-width 100
+        :image-height 100
+    ) ; END OF OUTPUT
+ 
+
     ( ; START OF INPUT
       box 
       :orientation "horizontal"
@@ -58,11 +65,17 @@
                 )
       (
         button :onclick "playerctl play-pause"
-        "󰐎"
+        time
       )
     ) ; END OF INPUT
   ); EOF defwidget
 )
 
+(defpoll time :interval "1s"
+              :initial "offline"  ; optional, defaults to poll at startup
+              :run-while music-visible   ; optional, defaults to 'true'
+  `playerctl metadata | grep -oP 'title\\s+\\K.+'`)
+
 (defvar audio-mute "")
 (defvar audio-mute-num "1")
+(defvar music-visible false)

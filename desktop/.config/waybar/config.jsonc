@@ -23,6 +23,7 @@
         "wireplumber#sink",
         "wireplumber#source",
         "custom/restart_waybar",
+        "custom/readers_mode",
         "custom/light",
     ],
 
@@ -124,6 +125,11 @@
             "activated": "OHMAGA",
             "deactivated": "zzz"
         }
+    },
+
+    "custom/readers_mode": {
+        "format": "",
+        "on-click": "hyprctl dispatch hyprsunset --gamma 100 --temperature 400"
     },
 
     "custom/light": {
