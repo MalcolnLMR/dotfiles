@@ -12,10 +12,13 @@ ZSH_THEME="fino"
 
 plugins=(git)
 
+# Secrets
+source secrets_zshrc/alias_connections
+
 source $ZSH/oh-my-zsh.sh
 alias hsc="~/git/HeadsetControl/build/headsetcontrol"
 alias s="kitten ssh"
-alias pyvenv="source ./venv/bin/activate"
-alias pyinit="python -m venv venv"
+alias pyvactivate="source ./venv/bin/activate"
+alias pyvinit="python -m venv venv"
 alias mount-android="aft-mtp-mount ~/mnt"
-alias open="hyprctl dispatch exec nautilus ."
+alias open="nautilus ."

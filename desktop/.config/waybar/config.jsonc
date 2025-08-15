@@ -19,10 +19,11 @@
     "modules-right": [
         "network",
         "custom/media",
-        "custom/audio_output",
-        "wireplumber#sink",
-        "wireplumber#source",
+        //"custom/audio_output",
+        //"wireplumber#sink",
+        //"wireplumber#source",
         "custom/restart_waybar",
+        "custom/volume_controller",
         "custom/readers_mode",
         "custom/light",
     ],
@@ -128,8 +129,15 @@
     },
 
     "custom/readers_mode": {
-        "format": "",
-        "on-click": "hyprctl dispatch hyprsunset --gamma 100 --temperature 400"
+        "format": "󰖚",
+        "on-click": "eww open --toggle sunset",
+        "tooltip-format": ""
+    },
+
+    "custom/volume_controller": {
+        "format": "",
+        "on-click": "eww open --toggle volume-controller",
+        "tooltip-format": ""
     },
 
     "custom/light": {

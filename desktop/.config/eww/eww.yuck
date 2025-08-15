@@ -1,81 +1,145 @@
 (
-  defwindow exemple
+  defwindow sunset
   :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
   :geometry (
               geometry 
-              :x "0%"
-              :y "20px"
-              :width "25%"
-              :height "100px"
+              :x "35px"
+              :y "0"
+              :width "50px"
+              :height "50px"
               :anchor "top right"
             )
   :stacking "fg"
   :namespace "eww"
   (
-    sound-output
+    hyprsunset
+  )
+)
+; hyprsunset controller
+(
+  defwidget hyprsunset [] (
+    box
+    :class 'hyprsunset'
+    :orientation "horizontal"
+    ( 
+      eventbox
+        :class 'btn l'
+        :onclick "hyprctl hyprsunset temperature 2500; eww close sunset"
+        :cursor "pointer"
+      ""
+    )
+    (
+      eventbox
+        :class 'btn r'
+        :onclick "hyprctl hyprsunset identity; eww close sunset"
+        :cursor "pointer"
+      ""
+    )
+  )
+)
+
+(
+  defwindow volume-controller
+    :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
+    :stacking "fg"
+    :namespace "eww"
+    :geometry
+    (
+      geometry 
+      :x "50px"
+      :y "10px"
+      :anchor "top right"
+      :width "300px"
+      :height "60px"
+    )
+  (
+    sound-mixer
+  )
+)
+
+(
+  defwidget sound-mixer []
+  ( 
+    eventbox
+    :class 'sound_container'
+    :onhover "eww update sync-audio='true'"
+    :onhoverlost "eww update sync-audio='false'"
+    (
+    box
+    :class 'sound_mixer'
+    :orientation "vertical"
+    (
+    box :orientation 'horizontal'
+    (button :class 'btn'
+      :onclick "~/.config/personal_scripts/set-audio-to-headset.py"
+      ""
+      )
+    (button :class 'btn'
+      :onclick "~/.config/personal_scripts/set-audio-to-speaker.py"
+      "󰓃"
+      )
+    )
+    (
+      box
+      :class 'scale-container'
+      :orientation "vertical"
+      (
+        sound-bar
+          :cmd "@DEFAULT_AUDIO_SINK@"
+          :val volume-sink
+          :icon '󰖀'
+      )
+      (
+        sound-bar
+          :cmd "@DEFAULT_AUDIO_SOURCE@"
+          :val volume-source
+          :icon ''
+      )
+      )
+    )
+  )
+)
+
+(
+  defwidget sound-bar [cmd val icon] 
+  (
+    box 
+    :orientation 'horizontal' 
+    :space-evenly false
+    (
+      eventbox
+      :cursor "pointer"
+      :onclick "wpctl set-volume ${cmd} 0"
+      (
+      label
+        :text '${icon} ${val}% '
+      )
+    )
+    (
+      eventbox
+      :cursor "pointer"
+      :hexpand true 
+      (
+        scale
+        :class 'scale'
+        :min 0
+        :max 100
+        :value '${val}'
+        :onchange 'wpctl set-volume ${cmd} $(printf %.0f {})%'
+      )
+    )
   )
 )
 
 
-; Pulseaudio output widget
-(
-    defwidget sound-output [] ( ; START OF MAIN
-      box 
-      :orientation "vertical"
-      :geometry (
-                geometry
-                :x "0%"
-                :y "20px"
-                :width "90%"
-                :height "20px"
-                )
-      ( ; START OF OUTPUT
-      box
-      :orientation "horizontal"
-      :geometry (
-                  geometry
-                  :x "0%"
-                  :y "20px"
-                  :width "90%"
-                  :height "30px"
-                )
-      (
-        button :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ ${audio-mute-num}; eww update audio-mute=; eww update audio-mute-num=0"
-        audio-mute
-      )
-    ) ; END OF OUTPUT
- 
-    ( ; START OF OUTPUT
-      image
-        :path 'file:///tmp/.org.chromium.Chromium.P86DBH'
-        :image-width 100
-        :image-height 100
-    ) ; END OF OUTPUT
- 
 
-    ( ; START OF INPUT
-      box 
-      :orientation "horizontal"
-      :geometry (
-                  geometry
-                  :x "0%"
-                  :y "20px"
-                  :width "90%"
-                  :height "30px"
-                )
-      (
-        button :onclick "playerctl play-pause"
-        time
-      )
-    ) ; END OF INPUT
-  ); EOF defwidget
+(defvar sync-audio false)
+(defpoll volume-sink :interval '.1s' :run-while sync-audio
+    "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oP '\\.\\K\\w+'"
 )
+(defvar is-sink-muted false)
 
-(defpoll time :interval "1s"
-              :initial "offline"  ; optional, defaults to poll at startup
-              :run-while music-visible   ; optional, defaults to 'true'
-  `playerctl metadata | grep -oP 'title\\s+\\K.+'`)
-
-(defvar audio-mute "")
-(defvar audio-mute-num "1")
-(defvar music-visible false)
+(defpoll volume-source :interval '.1s' :run-while sync-audio
+    "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -oP '\\.\\K\\w+'"
+)
+(defvar is-source-muted false)

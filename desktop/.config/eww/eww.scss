@@ -1,0 +1,73 @@
+$bg: #242438;
+$bg-dark: #202031;
+$text: #cdd6f4;
+$text-accent: #fab387;
+* {
+  all: unset;
+  border: none;
+  font-family: "JetBrainsMono Nerd Font Propo";
+  font-weight: bold;
+  font-size: 16px;
+  min-height: 0;
+}
+
+.radius {
+  border-radius: 10px;
+}
+
+.colors {
+  background-color: $bg;
+  color: $text;
+}
+
+.hyprsunset {
+  @extend .radius;
+  @extend .colors;
+
+  .btn {
+    padding: 5px;
+    &:hover { background-color: #11111b;   }
+    &.r { border-radius: 0px 10px 10px 0px }
+    &.l { border-radius: 10px 0px 0px 10px }
+  }
+}
+
+
+.sound_container {
+  .sound_mixer {
+    @extend .radius;
+    @extend .colors;
+    opacity: 0;
+    margin-top: -10px;
+    animation: fade-in .5s ease forwards;
+
+    .btn {
+      @extend.radius;
+      padding: 10px;
+      &:hover { background-color: #11111b;   }
+    }
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+.scale-container {
+    padding: 0px 15px 0px 15px;
+}
+
+scale highlight {
+  background-color: $text-accent;
+  padding: 0.5em;
+  border-radius: 0.2em;
+}
+
+scale trough {
+  background-color: $bg-dark;
+  border-radius: 0.2em;
+}
+
