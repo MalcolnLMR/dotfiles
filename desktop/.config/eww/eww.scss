@@ -32,6 +32,14 @@ $text-accent: #fab387;
   }
 }
 
+.power-menu {
+  @extend .colors;
+
+  .desligar:hover {
+    background-color: #ff0000;
+  }
+}
+
 
 .sound_container {
   .sound_mixer {

@@ -23,6 +23,7 @@ Just use `stow _package_` in the needed packages, the default one is from my lap
 ## Plans
 
 - [ ] Finish installation guide
-- [ ] Combine desktop configs inside a `.config-desktop` for better maintenance
+- [x] Combine desktop configs inside a `.config-desktop` for better maintenance
+- [ ] Use links to files that are the same in desktop and laptop
 - [ ] Make a eww widget to better control audio in/out (change output, volume, etc)
 - [ ] Add images on readme to showcase my ricing :D
