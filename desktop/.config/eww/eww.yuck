@@ -1,3 +1,6 @@
+(include "./power-menu.yuck")
+(include "./muted.yuck")
+
 (
   defwindow sunset
   :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
@@ -130,34 +133,6 @@
     )
   )
 )
-
-(
-  defwindow menu
-  :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
-  :geometry (
-              geometry 
-              :x "35px"
-              :y "0"
-              :width "100px"
-              :height "100px"
-              :anchor "center"
-            )
-  :stacking "fg"
-  :namespace "eww"
-  (
-    box
-      :orientation 'h'
-      :class 'power-menu'
-      (
-        eventbox
-          :class 'desligar'
-          :onclick 'sudo shutdown now'
-        "DESLIGAR!"
-      )
-  )
-)
-
-
 
 (defvar sync-audio false)
 (defpoll volume-sink :interval '.1s' :run-while sync-audio

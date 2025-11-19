@@ -1,0 +1,53 @@
+(
+  defwindow menu
+  :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
+  :geometry (
+              geometry 
+              :x "0"
+              :y "0"
+              :width "110px"
+              :height "50px"
+              :anchor "center"
+            )
+  :stacking "fg"
+  :namespace "powermenu"
+  (
+    box
+      :orientation 'h'
+      :class 'power-menu'
+      :spacing 10
+      (
+        eventbox
+          :class 'desligar'
+          :cursor "pointer"
+          :onclick 'sudo shutdown now'
+        "⏻"
+      )
+      (
+        eventbox
+          :class 'reiniciar'
+          :cursor "pointer"
+          :onclick 'sudo reboot now'
+        "󰜉"
+      )
+  )
+)
+
+(
+  defwindow blur-bg
+  :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
+  :geometry (
+              geometry 
+              :x "0"
+              :y "-50px"
+              :width "1920px"
+              :height "1080px"
+              :anchor "top left"
+            ) 
+  :stacking "fg"
+  :namespace "blur"
+  (
+    box
+      :class 'blur-bg'
+  )
+)
