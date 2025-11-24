@@ -20,6 +20,13 @@ Then, clone this repo into your home folder, to be smt like `~/dotfiles`
 
 Just use `stow _package_` in the needed packages, the default one is from my laptop, and the `-desktop` is from my, well, desktop.
 
+#### Important - keyd config
+If you already have any keyd configuration, do not replace the file as below, just add the swapescape option there :D
+
+```bash
+sudo cp ~/dotfiles/keyd.conf /etc/keyd/default.conf
+```
+
 ## Plans
 
 - [ ] Finish installation guide
