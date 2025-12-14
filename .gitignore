@@ -1,1 +1,19 @@
+#####################
+### Secrets Files ###
+#####################
+
+secret_*/
+secret_*
 secrets_*/
+secrets_*
+
+##############################
+### Obsidian Vault Ignores ###
+##############################
+
+# Obsidian's settings (including plugin and hotkey configurations)
+.obsidian/
+
+# OS settings and caches
+.trash/
+.DS_Store
