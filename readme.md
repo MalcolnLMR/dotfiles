@@ -1,5 +1,8 @@
 # My dotfiles and ricing
 
+## About this repo
+Mainly for personal use (specially the `malcoln-pc-docs`), fell free to use it :D
+
 ## Installation (WIP)
 
 Dependencies:
