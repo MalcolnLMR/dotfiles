@@ -6,8 +6,6 @@
 @define-color text-urgent #B87988;
 @define-color text-great #88B879;
 
-@define-color test #ff0000;
-
 * {
     border: none;
     border-radius: 0;
@@ -42,6 +40,8 @@ tooltip label {
 #custom-light,
 #custom-audio_output,
 #custom-media,
+#power-profiles-daemon,
+#battery,
 #clock,
 #wireplumber,
 #network,
@@ -54,6 +54,18 @@ tooltip label {
     margin: 0px 0px;
     margin-top: 10px;
     border: 1px solid @bg-dark;
+}
+
+#power-profiles-daemon.performance {
+    color: @text-accent;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @text-great;
+}
+
+#power-profiles-daemon.balanced {
+    color: @text;
 }
 
 #tray {
