@@ -1,6 +1,8 @@
 window {
 margin: 0px;
-border: 1px solid #bd93f9;
+border-width: 1px;
+border-style: solid;
+border-color: #bd93f9;
 border-radius: 10px;
 background-color: #282a36;
 }
