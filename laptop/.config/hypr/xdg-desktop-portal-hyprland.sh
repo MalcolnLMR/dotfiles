@@ -1,1 +1,0 @@
-/home/malcolnlmr/dotfiles/desktop/.config/hypr/xdg-desktop-portal-hyprland.sh
