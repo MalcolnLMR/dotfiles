@@ -18,8 +18,9 @@
         "network",
         "backlight",
         "custom/media",
-        "wireplumber#sink",
-        "wireplumber#source",
+        "custom/restart_waybar",
+        "custom/volume_controller",
+        "custom/readers_mode",
         "power-profiles-daemon",
         "battery"
     ],
@@ -31,12 +32,12 @@
             "1":"",
             "2":"󰈹",
             "3":"󰞷",
-            "4":"",
+            "4":"",
             "5":"󰍡",
             "6":""
         },
         "persistent_workspaces": {
-            "*": [1, 2, 3, 4, 5, 6],
+            "eDP-1": [1, 2, 3, 4, 5, 6]
         }
     },
     "hyprland/window": {
@@ -68,9 +69,9 @@
         "device": "intel_backlight",
         "format": "{percent}% {icon}",
         "format-icons": [
-            "󰃞 ",
-            "󰃟 ",
-            "󰃠 "
+            "󰃞",
+            "󰃟",
+            "󰃠"
         ],
         "on-scroll-up": "brightnessctl -q set 1%+",
         "on-scroll-down": "brightnessctl -q set 1%-"
@@ -131,11 +132,10 @@
 
    "network": {
         "format-wifi": "  {signalStrength}%",
-        "format-ethernet": " Connected",
-        "tooltip-format": "{essid} - {ifname}",
+        "format-ethernet": "󰛳",
+        "tooltip-format": "{essid} - {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "⚠ Offline",
-        "format-alt": "{ipaddr}/{cidr}"
+        "format-disconnected": "󰲛"
     },
 
     "bluetooth": {
@@ -157,5 +157,27 @@
             "balanced": "",
             "power-saver": ""
         }
+    },
+
+    "custom/readers_mode": {
+        "format": "󰖚",
+        "on-click": "eww open --toggle sunset",
+        "tooltip-format": ""
+    },
+
+    "custom/volume_controller": {
+        "format": "",
+        "on-click": "eww open --toggle volume-controller",
+        "tooltip-format": ""
+    },
+
+    "custom/light": {
+        "format": "",
+        "on-click": "~/git/HeadsetControl/build/headsetcontrol -l 0"
+    },
+
+    "custom/restart_waybar": {
+        "format": "",
+        "on-click": "~/.config/waybar/scripts/kill_waybar.sh"
     }
 }

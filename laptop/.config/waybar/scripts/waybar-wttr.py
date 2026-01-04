@@ -5,20 +5,20 @@ import requests
 from datetime import datetime
 
 WEATHER_CODES = {
-    '113': '☀️ ',
-    '116': '⛅ ',
-    '119': '☁️ ',
-    '122': '☁️ ',
-    '143': '☁️ ',
+    '113': '☀️',
+    '116': '⛅',
+    '119': '☁️',
+    '122': '☁️',
+    '143': '☁️',
     '176': '🌧️',
     '179': '🌧️',
     '182': '🌧️',
     '185': '🌧️',
-    '200': '⛈️ ',
+    '200': '⛈️',
     '227': '🌨️',
     '230': '🌨️',
-    '248': '☁️ ',
-    '260': '☁️ ',
+    '248': '☁️',
+    '260': '☁️',
     '263': '🌧️',
     '266': '🌧️',
     '281': '🌧️',
@@ -35,10 +35,10 @@ WEATHER_CODES = {
     '320': '🌨️',
     '323': '🌨️',
     '326': '🌨️',
-    '329': '❄️ ',
-    '332': '❄️ ',
-    '335': '❄️ ',
-    '338': '❄️ ',
+    '329': '❄️',
+    '332': '❄️',
+    '335': '❄️',
+    '338': '❄️',
     '350': '🌧️',
     '353': '🌧️',
     '356': '🌧️',
@@ -52,7 +52,7 @@ WEATHER_CODES = {
     '386': '🌨️',
     '389': '🌨️',
     '392': '🌧️',
-    '395': '❄️ '
+    '395': '❄️'
 }
 
 data = {}
@@ -94,7 +94,7 @@ if tempint > 0 and tempint < 10:
     extrachar = '+'
 
 
-data['text'] = ' '+WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + \
+data['text'] = ''+WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + \
     " "+extrachar+weather['current_condition'][0]['FeelsLikeC']+"°C"
 
 data['tooltip'] = f"<b>{weather['current_condition'][0]['weatherDesc'][0]['value']} {weather['current_condition'][0]['temp_C']}°</b>\n"
@@ -114,7 +114,7 @@ for i, day in enumerate(weather['weather']):
         if i == 0:
             if int(format_time(hour['time'])) < datetime.now().hour-2:
                 continue
-        data['tooltip'] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]} {format_temp(hour['FeelsLikeC'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
+        data['tooltip'] += f"{format_time(hour['time'])} {WEATHER_CODES[hour['weatherCode']]}  {format_temp(hour['FeelsLikeC'])} {hour['weatherDesc'][0]['value']}, {format_chances(hour)}\n"
 
 
 print(json.dumps(data))
