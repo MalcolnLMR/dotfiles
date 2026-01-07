@@ -7,6 +7,12 @@ secret_*
 secrets_*/
 secrets_*
 
+
+#####################
+### Secrets Files ###
+#####################
+default/.config/eww/scripts/weather_info
+
 ##############################
 ### Obsidian Vault Ignores ###
 ##############################

@@ -1,53 +1,29 @@
-(
-  defwindow menu
-  :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
-  :geometry (
-              geometry 
-              :x "0"
-              :y "0"
-              :width "110px"
-              :height "50px"
-              :anchor "center"
-            )
-  :stacking "fg"
-  :namespace "powermenu"
-  (
-    box
-      :orientation 'h'
-      :class 'power-menu'
-      :spacing 10
-      (
-        eventbox
-          :class 'desligar'
-          :cursor "pointer"
-          :onclick 'sudo shutdown now'
-        "⏻"
-      )
-      (
-        eventbox
-          :class 'reiniciar'
-          :cursor "pointer"
-          :onclick 'sudo reboot now'
-        "󰜉"
-      )
-  )
-)
+(include "./power-menu-widgets.yuck")
+(defvar main_monitor "DP-2")
+(defpoll base_height :interval "1h" `150`)
+  
 
-(
-  defwindow blur-bg
-  :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
-  :geometry (
-              geometry 
-              :x "0"
-              :y "-50px"
-              :width "1920px"
-              :height "1080px"
-              :anchor "top left"
-            ) 
-  :stacking "fg"
-  :namespace "blur"
-  (
-    box
-      :class 'blur-bg'
-  )
-)
+(defwindow weather 
+  :monitor 0 :stacking "fg" :focusable "false" :namespace "powermenu"
+	:geometry (geometry :x "670" :y "350" :width "550" :height "${150*2+20}" :anchor "top left" )
+	 (weather))
+
+(defwindow system 
+  :monitor 0 :stacking "fg" :focusable "false" :namespace "powermenu"
+	:geometry (geometry :x "300" :y "300" :width "350" :height "${150}" :anchor "top left")
+	(system))
+
+(defwindow uptime 
+  :monitor 0 :stacking "fg" :focusable "false"
+	:geometry (geometry :x "300" :y "${300+150+20}" :width "350" :height "${150}" :anchor "top left")
+	(uptime))
+
+(defwindow menu
+  :monitor 0 :stacking "fg" :namespace "powermenu"
+  :geometry (geometry :x "${300+350+550+20+20}" :y "300" :width "350" :height "${150*2+20}" :anchor "top left")
+  (powerbuttons))
+
+(defwindow blur-bg
+  :monitor 0 :stacking "fg" :namespace "blur"
+  :geometry (geometry :x "0" :y "-50px" :width "1920px" :height "1080px" :anchor "top left") 
+  (box :class 'blur-bg'))

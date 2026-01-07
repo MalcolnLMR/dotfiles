@@ -8,7 +8,7 @@ Mainly for personal use (specially the `malcoln-pc-docs`), fell free to use it :
 Dependencies:
 
 ```bash
-sudo pacman -S hyprland hyprpaper waybar wofi stow
+sudo pacman -S hyprland hyprpaper waybar wofi stow keyd
 ```
 
 as for waybar temperature module, you will need python, pip and python-requests. The dependency is installed system-wide bcz I think was easier than creating a venv to setup.
@@ -21,7 +21,7 @@ Then, clone this repo into your home folder, to be smt like `~/dotfiles`
 
 ### Usage
 
-Just use `stow _package_` in the needed packages, the default one is from my laptop, and the `-desktop` is from my, well, desktop.
+Just use `stow default` and `stow laptop` or `stow desktop`.
 
 #### Important - keyd config
 If you already have any keyd configuration, do not replace the file as below, just add the swapescape option there :D

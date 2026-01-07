@@ -134,6 +134,7 @@
   )
 )
 
+
 (defvar sync-audio false)
 (defpoll volume-sink :interval '.1s' :run-while sync-audio
     "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oP '\\.\\K\\w+'"

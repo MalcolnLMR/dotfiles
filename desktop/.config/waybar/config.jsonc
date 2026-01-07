@@ -19,10 +19,11 @@
     "modules-right": [
         "network",
         "custom/media",
-        //"custom/audio_output",
-        //"wireplumber#sink",
-        //"wireplumber#source",
-        "custom/restart_waybar",
+        // "cava",
+        // "custom/audio_output",
+        // "wireplumber#sink",
+        // "wireplumber#source",
+        // "custom/restart_waybar",
         "custom/volume_controller",
         "custom/readers_mode",
         "custom/light",
@@ -71,7 +72,8 @@
         "interval": 60,
         "format-alt": " {0:%H:%M}  {0:%d/%m}",
         "format": "{0:%H:%M}",
-        "tooltip-format": "<big>{0:%d/%m - %A}</big>\n<tt>{calendar}</tt>"
+        "tooltip-format": "<big>{0:%d/%m - %A}</big>\n<tt>{calendar}</tt>",
+        "on-click-right": "~/.config/waybar/scripts/kill_waybar.sh"
     },
 
     "custom/audio_output": {
@@ -94,38 +96,12 @@
         "exec": "~/.config/waybar/scripts/mediaplayer.py 2> /dev/null" 
     },
 
-    "wireplumber#sink": {
-        "format": " {volume}%",
-        "format-muted": "",
-        "tooltip-format": "{node_name}",
-        "on-click": "exec pavucontrol",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    },
-
-    "wireplumber#source": {
-        "node-type": "Audio/Source",
-        "format": " {volume}%",
-        "tooltip-format": "{node_name}",
-        "format-muted": "",
-        "on-click": "helvum",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-        "scroll-step": 5
-    },
-
     "network": {
         "format-wifi": "  {signalStrength}%",
         "format-ethernet": "󰛳",
         "tooltip-format": "{essid} - {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "󰲛"
-    },
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "OHMAGA",
-            "deactivated": "zzz"
-        }
     },
 
     "custom/readers_mode": {
@@ -148,5 +124,31 @@
     "custom/restart_waybar": {
         "format": "",
         "on-click": "~/.config/waybar/scripts/kill_waybar.sh"
+    },
+
+    "cava": {
+            // "cava_config": "$XDG_CONFIG_HOME/cava/config",
+            "framerate": 144,
+            "autosens": 1,
+            // "sensitivity": 4,
+            // "sdl_height": 20,
+            "bars": 20,
+            "lower_cutoff_freq": 50,
+            "higher_cutoff_freq": 10000,
+            "hide_on_silence": false,
+            // "format_silent": "quiet",
+            "method": "pipewire",
+            "source": "auto",
+            "stereo": true,
+            "reverse": false,
+            "bar_delimiter": 0,
+            "monstercat": false,
+            "waves": false,
+            "noise_reduction": 0.80,
+            "input_delay": 2,
+            "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+            "actions": {
+                    "on-click-right": "mode"
+                    }
     }
 }

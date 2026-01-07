@@ -2,6 +2,8 @@ $bg: #242438;
 $bg-dark: #202031;
 $text: #cdd6f4;
 $text-accent: #fab387;
+$icon-l-size: 86px;
+
 * {
   all: unset;
   border: none;
@@ -33,21 +35,19 @@ $text-accent: #fab387;
 }
 
 .power-menu {
-  .desligar {
+  .btn {
     @extend .colors;
-    @extend .radius;
+    @extend .radius;   
     &:hover {
-      background-color: #7e1616;
+      background-color: $bg-dark;
     }
-  }  
-  .reiniciar {
-    @extend .colors;
-    @extend .radius;
-    &:hover {
-      background-color: #7e1616;
+    .icon {
+      font-size: $icon-l-size; 
     }
-  } 
+  }
 }
+
+/** Audio Component ***********************************/
 
 .muted-icon {
   @extend .radius;
@@ -100,3 +100,109 @@ scale trough {
   border-radius: 0.2em;
 }
 
+/** Generic window ***********************************/
+.genwin {
+  @extend .radius;
+  @extend .colors;
+
+  .btn {
+    &:hover{
+      background-color: $bg-dark;      
+    }
+    .icon {
+      font-size: $icon-l-size; 
+    }
+  }
+}
+
+/** Weather ***************************************/
+.iconweather {
+	font-family: Iosevka Nerd Font;
+	font-size : 120px;
+	font-weight : normal;
+	margin : 0px 0px 0px 50px;
+}
+
+.label_temp {
+	color : $text;
+	font-size : 80px;
+	font-weight : bold;
+	margin : 0px 30px 0px 0px;
+}
+
+.label_stat {
+	color : $text-accent;
+	font-size : 38px;
+	font-weight : bold;
+}
+
+.label_quote {
+	color : $text;
+	font-size : 18px;
+	font-weight : normal;
+}
+
+
+/** System ********************************************/
+.iconcpu, .iconmem, .iconbright, .iconbat {
+	font-size : 32px;
+	font-weight : normal;
+}
+.iconcpu {
+	color: #BF616A;
+}
+.iconmem {
+	color: #A3BE8C;
+}
+.iconbright {
+	color: #EBCB8B;
+}
+.iconbat {
+	color: #88C0D0;
+}
+
+.cpu_bar, .mem_bar, .bright_bar, .bat_bar, scale trough {
+	all: unset;
+	background-color: #3A404C;
+	border-radius: 16px;
+	min-height: 28px;
+	min-width: 240px;
+}
+
+.cpu_bar, .mem_bar, .bright_bar, .bat_bar, scale trough highlight {
+	all: unset;
+	border-radius: 16px;
+}
+
+.cpu_bar scale trough highlight {
+	background-color: #BF616A;
+}
+.mem_bar scale trough highlight {
+	background-color: #A3BE8C;
+}
+.bright_bar scale trough highlight {
+	background-color: #EBCB8B;
+}
+.bat_bar scale trough highlight {
+	background-color: #88C0D0;
+}
+
+/** Uptime ********************************************/
+.icontimer {
+	// color: #B48EAD;
+  color: $text;
+	font-size : $icon-l-size;
+	font-weight : normal;
+}
+
+.uphour {
+	color: $text;
+	font-size : 32px;
+	font-weight : bold;
+}
+
+.upmin {
+	color: $text;
+	font-size : 20px;
+	font-weight : bold;
+}

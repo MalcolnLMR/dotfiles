@@ -8,6 +8,10 @@
 
 @define-color test #ff0000;
 
+window.HDMI-1-A * {
+    /* display: block; */
+}
+
 * {
     border: none;
     border-radius: 0;
@@ -42,6 +46,7 @@ tooltip label {
 #custom-light,
 #custom-audio_output,
 #custom-media,
+#cava,
 #clock,
 #wireplumber,
 #network,
