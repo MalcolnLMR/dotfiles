@@ -2,6 +2,7 @@
     "layer": "top",
     "position": "top",
     "mod": "dock",
+    "output": "DP-2",
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
@@ -13,7 +14,8 @@
 
     "modules-center": [
         "clock",
-        "custom/weather"
+        "custom/weather_icon",
+        "custom/weather_temp"
     ],
 
     "modules-right": [
@@ -60,6 +62,22 @@
         "interval": 600,
         "exec": "~/.config/waybar/scripts/waybar-wttr.py",
         "return-type": "json"
+    },
+
+    "custom/weather_icon": {
+        "tooltip": false,
+        "format": "{}",
+        "interval": 600,
+        "exec": "~/.config/eww/scripts/weather_info --icon",
+        "return-type": "text"
+    },
+
+    "custom/weather_temp": {
+        "tooltip": false,
+        "format": "{}",
+        "interval": 600,
+        "exec": "~/.config/eww/scripts/weather_info --temp",
+        "return-type": "text"
     },
 
     "tray": {

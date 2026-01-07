@@ -61,6 +61,22 @@ tooltip label {
     border: 1px solid @bg-dark;
 }
 
+
+#custom-weather_icon {
+    background: @bg;
+    opacity: 0.8;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+#custom-weather_temp {
+    background: @bg;
+    opacity: 0.8;
+    margin-top: 10px;
+    padding-right: 10px;
+    border-radius: 0px 10px 10px 0px;
+}
+
 #tray {
     border-radius: 10px;
     margin-left: 10px;
