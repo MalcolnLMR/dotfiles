@@ -67,6 +67,8 @@ tooltip label {
     opacity: 0.8;
     margin-top: 10px;
     padding-left: 10px;
+    padding-right: 4px;
+    font-size: 20px;
 }
 
 #custom-weather_temp {

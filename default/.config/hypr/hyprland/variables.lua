@@ -1,0 +1,7 @@
+mainMod = "SUPER"
+mouseMod = "CTRL + SUPER"
+terminal = "kitty"
+fileManager = "nautilus"
+menu = "wofi"
+mainMonitor = "DP-2"
+secMonitor = "HDMI-A-1"

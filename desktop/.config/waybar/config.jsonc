@@ -28,7 +28,7 @@
         // "custom/restart_waybar",
         "custom/volume_controller",
         "custom/readers_mode",
-        "custom/light",
+        "custom/light"
     ],
 
     "hyprland/workspaces": {
@@ -44,7 +44,7 @@
             "6":"󰍡",
             "7":"",
             "8":"󰈹",
-            "9":"󰨜",
+            "9":"󰨜"
         },
         "persistent-workspaces": {
             "DP-2": [1, 2, 3, 4, 5],
@@ -69,6 +69,8 @@
         "format": "{}",
         "interval": 600,
         "exec": "~/.config/eww/scripts/weather_info --icon",
+        "on-click-right": "~/.config/eww/scripts/weather_info --getdata",
+        "on-click": "exec",
         "return-type": "text"
     },
 
@@ -77,6 +79,8 @@
         "format": "{}",
         "interval": 600,
         "exec": "~/.config/eww/scripts/weather_info --temp",
+        "on-click-right": "~/.config/eww/scripts/weather_info --getdata",
+        "on-click": "exec",
         "return-type": "text"
     },
 
