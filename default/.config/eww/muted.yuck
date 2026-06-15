@@ -1,6 +1,6 @@
 (
     defwindow muted_icon
-    :monitor "DP-2"  ; "HDMI-A-1" | "DP-2" ; Pass this to DP-2 when finish developing
+    :monitor "0"  ; "HDMI-A-1" | "DP-2" ; Pass this to DP-2 when finish developing
     :geometry (
                 geometry 
                 :x "50px"
@@ -11,7 +11,7 @@
             )
     :stacking "overlay"
     :namespace "eww"
-    :focusable "none"
+    :focusable "false"
     (
       box
         :class 'muted-icon'

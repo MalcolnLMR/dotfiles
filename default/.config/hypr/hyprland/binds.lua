@@ -34,16 +34,6 @@ for i = 1, 9 do
 	hl.bind(mainMod .. " + SHIFT + code:" .. kb_numeric_1_to_9[i], hl.dsp.window.move({ workspace = i }))
 end
 
--- hl.bind(mainMod .. " + code:87", hl.dsp.focus({ workspace = 1 }))
--- hl.bind(mainMod .. " + code:88", hl.dsp.focus({ workspace = 2 }))
--- hl.bind(mainMod .. " + code:89", hl.dsp.focus({ workspace = 3 }))
--- hl.bind(mainMod .. " + code:83", hl.dsp.focus({ workspace = 4 }))
--- hl.bind(mainMod .. " + code:84", hl.dsp.focus({ workspace = 5 }))
--- hl.bind(mainMod .. " + code:85", hl.dsp.focus({ workspace = 6 }))
--- hl.bind(mainMod .. " + code:79", hl.dsp.focus({ workspace = 7 }))
--- hl.bind(mainMod .. " + code:80", hl.dsp.focus({ workspace = 8 }))
--- hl.bind(mainMod .. " + code:81", hl.dsp.focus({ workspace = 9 }))
-
 -- Example special workspace (scratchpad)
 hl.bind("ALT + TAB", hl.dsp.workspace.toggle_special("magic"))
 hl.bind("ALT + SHIFT + TAB", hl.dsp.window.move({ workspace = "special:magic" }))
@@ -98,3 +88,6 @@ hl.bind("mouse:281", hl.dsp.window.fullscreen())
 hl.bind("mouse:282", hl.dsp.exec_cmd("python $HOME/.config/eww/scripts/update-mute.py"))
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("python $HOME/.config/hypr/scripts/open-power-menu.py"))
+
+-- restart waybar (Super + Ctrl + kb_1)
+-- hl.bind(mainMod .. " + CTRL + code:87", hl.dsp.exec_cmd("pkill waybar && waybar"))

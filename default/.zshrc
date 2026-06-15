@@ -25,3 +25,6 @@ alias mount-android="aft-mtp-mount ~/mnt"
 alias open="nautilus ."
 alias folder-usage="du -ch --max-depth=1 ."
 alias fu="sudo du -ch --max-depth=1 ."
+
+alias php='php83'
+alias composer='php83 /usr/bin/composer'

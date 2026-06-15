@@ -1,5 +1,5 @@
 (include "./power-menu-widgets.yuck")
-(defvar main_monitor "DP-2")
+(defvar main_monitor "0")
 (defpoll base_height :interval "1h" `150`)
   
 

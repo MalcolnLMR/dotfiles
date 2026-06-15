@@ -3,7 +3,7 @@
 
 (
   defwindow sunset
-  :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
+  :monitor "0" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
   :geometry (
               geometry 
               :x "35px"
@@ -43,7 +43,7 @@
 
 (
   defwindow volume-controller
-    :monitor "DP-2" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
+    :monitor "0" ; "HDMI-A-1" ; Pass this to DP-2 when finish developing
     :stacking "fg"
     :namespace "eww"
     :geometry
@@ -52,7 +52,7 @@
       :x "50px"
       :y "10px"
       :anchor "top right"
-      :width "300px"
+      :width "400px"
       :height "60px"
     )
   (
