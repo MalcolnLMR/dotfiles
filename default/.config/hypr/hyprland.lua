@@ -6,7 +6,7 @@ require("hyprland.laptop")
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-if not(isLaptop) then
+if not (isLaptop) then
 	hl.monitor({
 		output = mainMonitor,
 		mode = "1920x1080@144",
@@ -20,7 +20,7 @@ if not(isLaptop) then
 		position = "1920x0",
 		scale = "1",
 	})
-else 
+else
 	hl.monitor({
 		output = mainMonitor,
 		mode = "1920x1200@60",
@@ -30,8 +30,8 @@ else
 
 	hl.monitor({
 		output = secMonitor,
-		mode = "1920x1080@75",
-		position = "1920x0",
+		mode = "4096x2160@60",
+		position = "-4096x0",
 		scale = "1",
 	})
 end
@@ -49,12 +49,12 @@ hl.on("hyprland.start", function()
 end)
 
 -- Favorite Apps
-if not(isLaptop) then
+if not (isLaptop) then
 	hl.on("hyprland.start", function()
 		hl.exec_cmd("qbittorrent")
 		hl.exec_cmd("discord-canary")
 	end)
-else 
+else
 	hl.on("hyprland.start", function()
 		hl.exec_cmd("discord-canary")
 	end)
