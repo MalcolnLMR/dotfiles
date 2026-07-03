@@ -6,19 +6,36 @@ require("hyprland.laptop")
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({
-	output = mainMonitor,
-	mode = "1920x1080@144",
-	position = "0x0",
-	scale = "1",
-})
+if not(isLaptop) then
+	hl.monitor({
+		output = mainMonitor,
+		mode = "1920x1080@144",
+		position = "0x0",
+		scale = "1",
+	})
 
-hl.monitor({
-	output = secMonitor,
-	mode = "1920x1080@75",
-	position = "1920x0",
-	scale = "1",
-})
+	hl.monitor({
+		output = secMonitor,
+		mode = "1920x1080@75",
+		position = "1920x0",
+		scale = "1",
+	})
+else 
+	hl.monitor({
+		output = mainMonitor,
+		mode = "1920x1200@60",
+		position = "0x0",
+		scale = "1",
+	})
+
+	hl.monitor({
+		output = secMonitor,
+		mode = "1920x1080@75",
+		position = "1920x0",
+		scale = "1",
+	})
+end
+
 
 -------------------
 ---- AUTOSTART ----
