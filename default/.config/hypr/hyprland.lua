@@ -1,4 +1,5 @@
 require("hyprland.variables")
+require("hyprland.laptop")
 
 ------------------
 ---- MONITORS ----
@@ -31,11 +32,17 @@ hl.on("hyprland.start", function()
 end)
 
 -- Favorite Apps
-hl.on("hyprland.start", function()
-	hl.exec_cmd("zapzap")
-	hl.exec_cmd("thunderbird")
-	hl.exec_cmd("discord-canary")
-end)
+if not(isLaptop) then
+	hl.on("hyprland.start", function()
+		hl.exec_cmd("qbittorrent")
+		hl.exec_cmd("discord-canary")
+	end)
+else 
+	hl.on("hyprland.start", function()
+		hl.exec_cmd("discord-canary")
+	end)
+end
+
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -105,7 +112,7 @@ hl.gesture({
 ---- KEYBINDINGS ----
 ---------------------
 
-require("hyprland.binds")
+require("hyprland.binds_default")
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----

@@ -1,0 +1,6 @@
+mainMod = "SUPER"
+terminal = "kitty"
+fileManager = "nautilus"
+menu = "wofi"
+mainMonitor = "eDP-1"
+secMonitor = "HDMI-A-1"

@@ -1,3 +1,5 @@
+require("hyprland.binds")
+
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
@@ -9,7 +11,7 @@ hl.bind(
 )
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
@@ -19,21 +21,6 @@ hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
-for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
-end
-
-local kb_numeric_1_to_9 = {"87", "88", "89", "83", "84", "85", "79", "80", "81"}
-
-for i = 1, 9 do
-	hl.bind(mainMod .. " + code:" .. kb_numeric_1_to_9[i], hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + code:" .. kb_numeric_1_to_9[i], hl.dsp.window.move({ workspace = i }))
-end
-
 -- Example special workspace (scratchpad)
 hl.bind("ALT + TAB", hl.dsp.workspace.toggle_special("magic"))
 hl.bind("ALT + SHIFT + TAB", hl.dsp.window.move({ workspace = "special:magic" }))
@@ -41,14 +28,10 @@ hl.bind("ALT + SHIFT + TAB", hl.dsp.window.move({ workspace = "special:magic" })
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mouseMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mouseMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-hl.bind(mouseMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mouseMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
@@ -82,12 +65,23 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 -- Custom
 hl.bind("ALT + F4", hl.dsp.window.close())
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(menu))
-hl.bind(mouseMod .. " + mouse:274", hl.dsp.window.close())
-hl.bind("mouse:281", hl.dsp.window.fullscreen())
-hl.bind("mouse:282", hl.dsp.exec_cmd("python $HOME/.config/eww/scripts/update-mute.py"))
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mainMod .. " + TAB", hl.dsp.exec_cmd("python $HOME/.config/hypr/scripts/open-power-menu.py"))
 
 -- restart waybar (Super + Ctrl + kb_1)
 -- hl.bind(mainMod .. " + CTRL + code:87", hl.dsp.exec_cmd("pkill waybar && waybar"))
+
+-- Switch workspaces with mainMod + [0-9]
+-- Move active window to a workspace with mainMod + SHIFT + [0-9]
+for i = 1, 10 do
+	local key = i % 10 -- 10 maps to key 0
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+end
+
+local kb_numeric_1_to_9 = {"87", "88", "89", "83", "84", "85", "79", "80", "81"}
+
+for i = 1, 9 do
+	hl.bind(mainMod .. " + code:" .. kb_numeric_1_to_9[i], hl.dsp.focus({ workspace = i }))
+	hl.bind(mainMod .. " + SHIFT + code:" .. kb_numeric_1_to_9[i], hl.dsp.window.move({ workspace = i }))
+end
