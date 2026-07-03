@@ -50,3 +50,22 @@ hl.window_rule({
 	move = "20 monitor_h-120",
 	float = true,
 })
+
+-- apps
+hl.window_rule({
+	name = "qBittorrent",
+	match = { class = "org.qbittorrent.qBittorrent" },
+	workspace = "8",
+})
+
+hl.window_rule({
+	name = "discord",
+	match = { class = "discord" },
+	workspace = "6",
+})
+
+hl.window_rule({
+	name = "zapzap",
+	match = { class = "com.rtosta.zapzap" },
+	workspace = "6",
+})
