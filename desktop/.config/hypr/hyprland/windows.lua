@@ -78,3 +78,12 @@ hl.window_rule({
 	float = true,
 	size = {400, 900},
 })
+
+-- magic-workspace
+
+hl.window_rule({
+	name = "magic-workspace-kitty",
+	match = { class = "kitty", workspace = "special:magic" },
+	pseudo = true,
+	size = { 1900, 600 },
+})
