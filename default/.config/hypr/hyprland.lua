@@ -17,7 +17,7 @@ if not (isLaptop) then
 	hl.monitor({
 		output = secMonitor,
 		mode = "1920x1080@75",
-		position = "1920x0",
+		position = "-1920x0",
 		scale = "1",
 	})
 else

@@ -55,17 +55,26 @@ hl.window_rule({
 hl.window_rule({
 	name = "qBittorrent",
 	match = { class = "org.qbittorrent.qBittorrent" },
-	workspace = "8",
+	workspace = "8 silent",
 })
 
 hl.window_rule({
 	name = "discord",
-	match = { class = "discord" },
-	workspace = "6",
+	match = { class = "discord-canary" },
+	workspace = "6 silent",
 })
 
 hl.window_rule({
 	name = "zapzap",
 	match = { class = "com.rtosta.zapzap" },
-	workspace = "6",
+	workspace = "6 silent",
+})
+
+-- steam
+
+hl.window_rule({
+	name = "steam",
+	match = { class = "steam", title = "Lista de amigos" },
+	float = true,
+	size = {400, 900},
 })
