@@ -28,3 +28,6 @@ alias fu="sudo du -ch --max-depth=1 ."
 
 alias php='php83'
 alias composer='php83 /usr/bin/composer'
+
+alias bt-connect='bluetoothctl connect 84:9D:4B:56:EF:00'
+alias bt-disconnect='bluetoothctl disconnect 84:9D:4B:56:EF:00'
