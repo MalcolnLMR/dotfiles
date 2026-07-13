@@ -8,7 +8,7 @@ Mainly for personal use (specially the `malcoln-pc-docs`), fell free to use it :
 Dependencies:
 
 ```bash
-sudo pacman -S hyprland hyprpaper waybar wofi stow keyd
+sudo pacman -S hyprland hyprpaper waybar wofi stow
 ```
 
 as for waybar temperature module, you will need python, pip and python-requests. The dependency is installed system-wide bcz I think was easier than creating a venv to setup.
@@ -27,7 +27,9 @@ Just use `stow default` and `stow laptop` or `stow desktop`.
 If you already have any keyd configuration, do not replace the file as below, just add the swapescape option there :D
 
 ```bash
+sudo pacman -S keyd
 sudo cp ~/dotfiles/keyd.conf /etc/keyd/default.conf
+sudo systemctl enable --now keyd
 ```
 
 ## Plans
